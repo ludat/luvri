@@ -1,3 +1,3 @@
 luvri
 =====
-motor de ajedrez en c++
+oh por dios este motor esta buenisimo
