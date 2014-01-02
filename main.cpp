@@ -112,15 +112,15 @@ int main(int argc, char *argv[]){
    };
 };
 void xboard(){
-	int color_comp=NEGRO;
-	char line[256], command[256];
-	signal(SIGINT, SIG_IGN);
-	setbuf(stdout, NULL);
-	int m;
-	principal.nueva_partida();
-	for (;;) {
+    int color_comp=NEGRO;
+    char line[256], command[256];
+    signal(SIGINT, SIG_IGN);
+    setbuf(stdout, NULL);
+    int m;
+    principal.nueva_partida();
+    for (;;) {
         //printf("el valor actual del tablero es:%d\n",evaluar(principal));
-		if (principal.leer_turno() == color_comp) {
+        if (principal.leer_turno() == color_comp) {
             computadora=pensar(principal);
             if(principal.mover(computadora)){
                     printf("\nmove %c%d%c%d\n", computadora.leer_desde_x()+'a'-2, computadora.leer_desde_y()-1,
@@ -129,96 +129,96 @@ void xboard(){
                 printf("el tablero no dejo mover");
             }
         };
-		if (!fgets(line, 256, stdin)){
-			return;
-		};
-		if (line[0] == '\n'){
-		    fflush(stdout);
-			continue;
-		};
-		sscanf(line, "%s", command);
-		if (!strcmp(command, "xboard")){
-			continue;
-		};
-		if (!strcmp(command, "new")){
-			principal.nueva_partida();
-			color_comp = NEGRO;
-			continue;
-		};
+        if (!fgets(line, 256, stdin)){
+            return;
+        };
+        if (line[0] == '\n'){
+            fflush(stdout);
+            continue;
+        };
+        sscanf(line, "%s", command);
+        if (!strcmp(command, "xboard")){
+            continue;
+        };
+        if (!strcmp(command, "new")){
+            principal.nueva_partida();
+            color_comp = NEGRO;
+            continue;
+        };
         if(!strcmp(command, "show")){
             principal.leer();
             continue;
         };
-		if (!strcmp(command, "quit"))
-			return;
-		if (!strcmp(command, "force")){
+        if (!strcmp(command, "quit"))
+            return;
+        if (!strcmp(command, "force")){
             color_comp = EMPTY;
-			continue;
-		};
-		if (!strcmp(command, "white")) {
-			color_comp = BLANCO;
-			continue;
-		};
-		if (!strcmp(command, "black")){
-			color_comp = NEGRO;
-			continue;
-		};
-		if (!strcmp(command, "undo")) {
-			principal.retroceder();
-			continue;
-		}
-		if (!strcmp(command, "remove")) {
-			principal.retroceder();
-			principal.retroceder();
-			continue;
-		}/*
-		if (!strcmp(command, "st")) {
-			sscanf(line, "st %d", &max_time);
-			max_time *= 1000;
-			max_depth = 32;
-			continue;
-		};
+            continue;
+        };
+        if (!strcmp(command, "white")) {
+            color_comp = BLANCO;
+            continue;
+        };
+        if (!strcmp(command, "black")){
+            color_comp = NEGRO;
+            continue;
+        };
+        if (!strcmp(command, "undo")) {
+            principal.retroceder();
+            continue;
+        }
+        if (!strcmp(command, "remove")) {
+            principal.retroceder();
+            principal.retroceder();
+            continue;
+        }/*
+        if (!strcmp(command, "st")) {
+            sscanf(line, "st %d", &max_time);
+            max_time *= 1000;
+            max_depth = 32;
+            continue;
+        };
         if (!strcmp(command, "sd")) {
-			sscanf(line, "sd %d", &max_depth);
-			max_time = 1 << 25;
-			continue;
-		}
-		if (!strcmp(command, "time")) {
-			sscanf(line, "time %d", &max_time);
-			max_time *= 10;
-			max_time /= 30;
-			max_depth = 32;
-			continue;
-		}
-		if (!strcmp(command, "otim")) {
-			continue;
-		}
-		if (!strcmp(command, "go")) {
-			color_comp = principal.leer_turno();
-			continue;
-		}
-		if (!strcmp(command, "hint")) {
-			think(0);
-			if (!pv[0][0].u)
-				continue;
-			printf("Hint: %s\n", move_str(pv[0][0].b));
-			continue;
-		}
-		if (!strcmp(command, "post")) {
-			post = 2;
-			continue;
-		}
-		if (!strcmp(command, "nopost")) {
-			post = 0;
-			continue;
-		}*/
-		if(oponente.escribir(command)){
+            sscanf(line, "sd %d", &max_depth);
+            max_time = 1 << 25;
+            continue;
+        }
+        if (!strcmp(command, "time")) {
+            sscanf(line, "time %d", &max_time);
+            max_time *= 10;
+            max_time /= 30;
+            max_depth = 32;
+            continue;
+        }
+        if (!strcmp(command, "otim")) {
+            continue;
+        }
+        if (!strcmp(command, "go")) {
+            color_comp = principal.leer_turno();
+            continue;
+        }
+        if (!strcmp(command, "hint")) {
+            think(0);
+            if (!pv[0][0].u)
+                continue;
+            printf("Hint: %s\n", move_str(pv[0][0].b));
+            continue;
+        }
+        if (!strcmp(command, "post")) {
+            post = 2;
+            continue;
+        }
+        if (!strcmp(command, "nopost")) {
+            post = 0;
+            continue;
+        }*/
+        if(oponente.escribir(command)){
             if(principal.mover(oponente)){
             }else{
                 printf("Illegal move: %c%d%c%d\n",  oponente.leer_desde_x()+'a'-2, oponente.leer_desde_y()-1,
                                                     oponente.leer_hacia_x()+'a'-2, oponente.leer_hacia_y()-1);
             }
         }
-	}
+    }
 }
 
