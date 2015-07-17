@@ -878,7 +878,7 @@ bool tablero::mover(mov m){
                 };
                 if(tablero_string[desde_y][desde_x]==7){
                     if(abs(desde_x-hacia_x)<=1){
-                        if(abs(desde_y-hacia_y<=1)){
+                        if(abs(desde_y-hacia_y)<=1){
                             segunda_comp=true;
                         }
                     }
