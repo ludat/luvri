@@ -1,16 +1,17 @@
-all: luvri
+CC=g++
+CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=main.cpp tablero_mov.cpp motor.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=luvri
 
-luvri: main.o motor.o tablero_mov.o
-	g++ main.o motor.o tablero_mov.o -o luvri
+all: $(SOURCES) $(EXECUTABLE)
 
-main.o: main.cpp
-	g++ -c main.cpp
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
 
-motor.o: motor.cpp
-	g++ -c motor.cpp
-
-tablero_mov.o: tablero_mov.cpp
-	g++ -c tablero_mov.cpp
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
 	rm -rf *\.o luvri
