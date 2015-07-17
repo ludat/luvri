@@ -20,7 +20,7 @@ int main(int argc, char *argv[]){
     printf("El motor se llama Luvri\n");
     printf("Primer prueba de make command");
     printf("veamos que onda\n");
-    printf("ESCRIBIR EL COMANDO:%chelp%c PARA CONSEGUIR AYUDA\n",34,34);
+    printf("ESCRIBIR EL COMANDO:\"help\" PARA CONSEGUIR AYUDA\n");
     principal.nueva_partida();
     int color_compu = NEGRO;
     for(;;){
