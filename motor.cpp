@@ -1684,7 +1684,7 @@ int evaluar(tablero a_evaluar){
                     puntaje_posibles -=1;
                 };
                 if(a_evaluar.leer_tablero(i-1,j-1)==0 || a_evaluar.leer_tablero(i-1,j-1)>1){
-                    puntaje_posibles -1;
+                    puntaje_posibles -=1;
                 };
                 if(a_evaluar.leer_tablero(i,j+1)==0 || a_evaluar.leer_tablero(i,j+1)>1){
                     puntaje_posibles -=1;

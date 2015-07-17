@@ -43,7 +43,7 @@ bool mov::escribir(char* s){
             tipo = enroque_largo;
             return true;
         }else{
-            if(s[4]='q' && s[4]!='\0'){
+            if(s[4]=='q' && s[4]!='\0'){
                 if(s[0]>='a' && s[0]<='h'
                 && s[1]>='1' && s[1]<='8'
                 && s[2]>='a' && s[2]<='h'
@@ -56,7 +56,7 @@ bool mov::escribir(char* s){
                     return true;
                 }
             }
-            if(s[4]='r' && s[4]!='\0'){
+            if(s[4]=='r' && s[4]!='\0'){
                 if(s[0]>='a' && s[0]<='h'
                 && s[1]>='1' && s[1]<='8'
                 && s[2]>='a' && s[2]<='h'
@@ -69,7 +69,7 @@ bool mov::escribir(char* s){
                     return true;
                 }
             }
-            if(s[4]='b' && s[4]!='\0'){
+            if(s[4]=='b' && s[4]!='\0'){
                 if(s[0]>='a' && s[0]<='h'
                 && s[1]>='1' && s[1]<='8'
                 && s[2]>='a' && s[2]<='h'
@@ -82,7 +82,7 @@ bool mov::escribir(char* s){
                     return true;
                 }
             }
-            if(s[4]='n' && s[4]!='\0'){
+            if(s[4]=='n' && s[4]!='\0'){
                 if(s[0]>='a' && s[0]<='h'
                 && s[1]>='1' && s[1]<='8'
                 && s[2]>='a' && s[2]<='h'
